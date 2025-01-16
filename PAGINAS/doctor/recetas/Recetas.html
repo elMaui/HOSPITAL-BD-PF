@@ -59,6 +59,7 @@
                     <label for="observaciones">Observaciones:</label>
                     <textarea id="observaciones" name="observaciones" placeholder="Ingrese las observaciones"></textarea>
 
+                    
                     <button type="submit">Emitir receta</button>
                 </form>
             </div>
@@ -114,6 +115,27 @@
             <h3 class="footer__copyright">Grupo: 3CV2-Equipo 9 &copy; Base de datos</h3>
         </section>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('../cuenta/mostrar_datos_doctor.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        console.error(data.error);
+                        alert("Error al cargar los datos.");
+                    } else {
+                        document.querySelector('.info-content').innerHTML = `
+                             <h1 class="hero__title"><strong>Bienvenid@, </strong><p> ${data.nombre_completo}</p></h1>
+
+                        `;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("Error al cargar los datos.");
+                });
+        });
+    </script>
     <script src="./Recetas.js"></script>
     <script src="../../../JS/ArribaInicio.js"></script>
 </body>

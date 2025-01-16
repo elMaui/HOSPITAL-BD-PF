@@ -1,6 +1,5 @@
 <?php
 require_once '../../Cconexion.php'; // Ruta ajustada
-
 // Habilitar reporte de errores
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -17,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $medicamentos = $_POST['medicamentos'];
         $indicaciones = $_POST['indicaciones'];
         $Observaciones = $_POST['observaciones'];
-
 
 
         // Inicio de transacción
@@ -50,4 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo "Método no permitido";
 }
+header("Location: verreceta.php?diagnostico=" . urlencode($diagnostico) .
+       "&medicamentos=" . urlencode($medicamentos) .
+       "&indicaciones=" . urlencode($indicaciones) .
+       "&observaciones=" . urlencode($Observaciones));
+exit;
 ?>
