@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../IMAGENES/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="./DC.css">
+    <link rel="stylesheet" href="../../../CSS/HF.css">
+    <link rel="stylesheet" href="../../../CSS/Normalize.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>CUENTA D</title>
+</head>
+<body>
+    <header class="hero">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <h2 calss="nav__title">Hospital</h2>
+            </div>
+            <ul class="nav__link nav__link--menu">
+                <li class="nav__items">
+                    <a href="../Doc.html" class="nav__links">Inicio</a>
+                </li>
+                <li class="nav__items">
+                    <a href="../PACIENTES/Pacientes.html" class="nav__links">Pacientes</a>
+                </li>
+                <li class="nav__items">
+                    <a href="../RECETAS/Recetas.html" class="nav__links">Recetas</a>
+                </li>
+                <li class="nav__items">
+                    <a href="../AGENDA/Agenda.html" class="nav__links">Agenda</a>
+                </li>
+                <img src="../../../IMAGENES/SVG/Xcerrar.svg" alt="" class="nav__close">
+            </ul>
+            <div class="nav__menu">
+                <img src="../../../IMAGENES/SVG/Menu.svg" alt="" class="nav_img">
+            </div>
+        </nav>
+        <section class="hero__container container">
+            <h1 class="hero__title">Bienvenido</h1>
+            <p class="hero__paragraph">Aqui te mostramos tus datos:</p>           
+        </section>
+    </header>
+
+    <main>
+        <section class="account">
+            <div class="user-data">
+                <div class="info-section">
+                    <div class="info-content">
+                        <h3>Información Personal</h3>
+                        <p><strong>Nombre completo:</strong> [Nombre del Doctor]</p>
+                        <p><strong>Dirección:</strong> [Dirección]</p>
+
+
+                        <h3>Contacto</h3>
+                        <p><strong>Correo electrónico:</strong> [Correo]</p>
+                        <p><strong>Correo electrónico de respaldo:</strong> [Correo de Respaldo]</p>
+                        <p><strong>Teléfono:</strong> [Teléfono]</p>
+
+                        <h3>Información profesional</h3>
+                        <p><strong>ID:</strong>[ID]</p>
+                        <p><strong>Licencia:</strong> [Licencia]</p>
+                        <p><strong>Especialidad:</strong> [Especialidad]</p>
+                        <p><strong>Consultorio:</strong> [Consultorio]</p>
+                    </div>
+                </div>
+                <div class="photo-section">
+                    <div class="image-placeholder">Foto</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <section class="footer__container container">
+            <nav class="nav nav--footer">
+                <h2 class="footer__title">
+                    <ul class="nav__link nav__link--footer">
+                        <li class="nav__items">
+                            <a href="../../INICIO/Acercade.html" class="nav__links">Acerca de</a>
+                        </li>
+                        <li class="nav__items">
+                            <a href="../../INICIO/Contacto.html" class="nav__links">Contacto</a>
+                        </li>
+                        <li class="nav__items">
+                            <a href="../../INICIO/Blog.html" class="nav__links">Blog</a>
+                        </li>
+                    </ul>
+                </h2>
+            </nav>
+    
+            <div class="footer-right">
+                <button id="scrollToTop" class="scroll-to-top">
+                    <img src="../../../IMAGENES/SVG/Farriba.svg" alt="Ir arriba" class="arrow-icon">
+                </button>
+            </div>
+        </section>
+
+        <section class="footer__copy container">
+            <div class="footer__social">
+                <a href="https://www.microsoft.com/es-es/sql-server/sql-server-downloads" class="footer__icons"><img src="../../../IMAGENES/SQL.png" class="footer__img"></a>
+                <a href="https://www.escom.ipn.mx/" class="footer__icons"><img src="../../../IMAGENES/BN-Escom-Logo.png" class="footer__img"></a>
+                <a href="https://www.instagram.com/mdiegx?igsh=ajNnNHlhcnExdmM2" class="footer__icons"><img src="../../../IMAGENES/SVG/Instagram.svg" class="footer__img"></a>
+            </div>
+
+            <h3 class="footer__copyright">Grupo: 3CV2-Equipo 9 &copy; Base de datos</h3>
+        </section>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('mostrar_datos_doctor.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        console.error(data.error);
+                        alert("Error al cargar los datos.");
+                    } else {
+                        document.querySelector('.info-content').innerHTML = `
+                            <h3>Información Personal</h3>
+                            <p><strong>Nombre completo:</strong> ${data.nombre_completo}</p>
+                            <p><strong>Dirección:</strong> ${data.direccion}</p>
+    
+                            <h3>Contacto</h3>
+                            <p><strong>Correo electrónico:</strong> ${data.email1}</p>
+                            <p><strong>Correo electrónico de respaldo:</strong> ${data.email2}</p>
+                            <p><strong>Teléfono:</strong> ${data.telefono1}</p>
+                            <p><strong>Teléfono alternativo:</strong> ${data.telefono2}</p>
+    
+                            <h3>Datos Médicos</h3>
+                            <p><strong>ID Doctor:</strong> ${data.id_doctor}</p>
+                            <p><strong>Licencia:</strong> ${data.licencia}</p>
+                            <p><strong>Especialidad:</strong> ${data.especialidad}</p>
+                            <p><strong>Consultorio:</strong> ${data.consultorio}</p>
+                        `;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("Error al cargar los datos.");
+                });
+        });
+    </script>
+    <script src="../../../JS/ArribaInicio.js"></script>
+</body>
+</html>

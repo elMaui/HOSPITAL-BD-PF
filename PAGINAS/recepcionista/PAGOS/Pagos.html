@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../IMAGENES/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="./Pagos.css">
+    <link rel="stylesheet" href="../../../CSS/HF.css">
+    <link rel="stylesheet" href="../../../CSS/Normalize.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>CUENTA R</title>
+</head>
+<body>
+    <header class="hero">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <h2 class="nav__title">Hospital</h2>
+            </div>
+            <ul class="nav__link nav__link--menu">
+                <li class="nav__items"><a href="../Recep.html" class="nav__links">Inicio</a></li>
+                <li class="nav__items"><a href="../DIRECTORIO/Directorio.html" class="nav__links">Directorio</a></li>
+                <li class="nav__items"><a href="../FARMACIA/Farmacia.html" class="nav__links">Farmacia</a></li>
+                <li class="nav__items">
+                    <a href="../TICKETS/Tickets.html" class="nav__links">Tickets</a>
+                </li>
+                <li class="nav__items"><a href="../CUENTA/Cuenta.html" class="nav__links">Cuenta</a></li>
+                <img src="../../../IMAGENES/SVG/Xcerrar.svg" alt="" class="nav__close">
+            </ul>
+            <div class="nav__menu">
+                <img src="../../../IMAGENES/SVG/Menu.svg" alt="" class="nav_img">
+            </div>
+        </nav>
+        <section class="hero__container container">
+            <h1 class="hero__title">Bienvenido</h1>
+            <p class="hero__paragraph">Aquí te mostramos tus datos:</p>           
+        </section>
+    </header>
+
+    <main>
+        <section class="billing">
+            <h1>Cobros y tickets</h1>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar cita" class="search-input" id="idCitaInput">
+                <button class="search-button" id="btnBuscar">
+                    <img src="../../../IMAGENES/lupa.png" alt="Buscar" class="search-icon">
+                </button>
+            </div>
+
+            <div class="billing-details">
+                <div class="billing-info" id="billingInfo">
+                    <p><strong>ID de la Cita:</strong> <span id="idCita">[ID]</span></p>
+                    <p><strong>Fecha:</strong> <span id="fechaCita">[Fecha]</span></p>
+                    <p><strong>Hora:</strong> <span id="horaCita">[Hora]</span></p>
+                    <p><strong>Doctor:</strong> <span id="doctorCita">[Doctor]</span></p>
+                    <p><strong>Paciente:</strong> <span id="pacienteCita">[Paciente]</span></p>
+                    <p><strong>Consultorio:</strong> <span id="consultorioCita">[Consultorio]</span></p>
+                    <p><strong>Estado:</strong> <span id="estadoCita">[Estado]</span></p>
+                </div>
+            
+                <div class="billing-actions">
+                    <div class="action">
+                        <label for="status">Estado de la cita:</label>
+                        <select id="status" class="action-dropdown">
+                            <option value="">Seleccionar</option>
+                            <option value="Confirmada">Confirmada</option>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="Cancelada_0">Cancelada (0% de reembolso)</option>
+                            <option value="Cancelada_50">Cancelada (50% de reembolso)</option>
+                            <option value="Cancelada_100">Cancelada (100% de reembolso)</option>
+                        </select>
+                    </div>
+                    <button id="confirmStatus" class="confirm-button">Confirmar</button>
+                </div>
+                
+            </div>
+            
+        </section>
+    </main>
+
+    <footer class="footer">
+        <section class="footer__container container">
+            <nav class="nav nav--footer">
+                <h2 class="footer__title">
+                    <ul class="nav__link nav__link--footer">
+                        <li class="nav__items">
+                            <a href="../../INICIO/Acercade.html" class="nav__links">Acerca de</a>
+                        </li>
+                        <li class="nav__items">
+                            <a href="../../INICIO/Contacto.html" class="nav__links">Contacto</a>
+                        </li>
+                        <li class="nav__items">
+                            <a href="../../INICIO/Blog.html" class="nav__links">Blog</a>
+                        </li>
+                    </ul>
+                </h2>
+            </nav>
+    
+            <div class="footer-right">
+                <button id="scrollToTop" class="scroll-to-top">
+                    <img src="../../../IMAGENES/SVG/Farriba.svg" alt="Ir arriba" class="arrow-icon">
+                </button>
+            </div>
+        </section>
+
+        <section class="footer__copy container">
+            <div class="footer__social">
+                <a href="https://www.microsoft.com/es-es/sql-server/sql-server-downloads" class="footer__icons"><img src="../../../IMAGENES/SQL.png" class="footer__img"></a>
+                <a href="https://www.escom.ipn.mx/" class="footer__icons"><img src="../../../IMAGENES/BN-Escom-Logo.png" class="footer__img"></a>
+            </div>
+
+            <h3 class="footer__copyright">Grupo: 3CV2-Equipo 9 &copy; Base de datos</h3>
+        </section>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchButton = document.getElementById('btnBuscar');
+            const searchInput = document.getElementById('idCitaInput');
+            const confirmButton = document.getElementById('confirmStatus');
+            const statusSelect = document.getElementById('status');
+    
+            // Buscar cita
+            searchButton.addEventListener('click', () => {
+                const idCita = searchInput.value.trim();
+    
+                if (!idCita) {
+                    alert("Por favor, ingresa un ID de cita.");
+                    return;
+                }
+    
+                fetch(`get_cita.php?id_cita=${idCita}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Datos recibidos:", data);  // Log para depuración
+                        if (data.error) {
+                            alert(data.error);
+                        } else {
+                            document.getElementById('idCita').textContent = data.ID_Cita || "No disponible";
+                            document.getElementById('fechaCita').textContent = data.fecha || "No disponible";
+                            document.getElementById('horaCita').textContent = data.hora || "No disponible";
+                            document.getElementById('doctorCita').textContent = data.nombre_doctor || "No disponible";
+                            document.getElementById('pacienteCita').textContent = data.nombre_paciente || "No disponible";
+                            document.getElementById('consultorioCita').textContent = data.consultorio || "No disponible";
+                            document.getElementById('estadoCita').textContent = data.Estado || "No disponible";
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+    
+            // Confirmar estado de la cita
+            confirmButton.addEventListener('click', () => {
+                const idCita = searchInput.value.trim();
+                const estadoSeleccionado = statusSelect.value;
+    
+                console.log("ID de cita:", idCita);  // Verifica que el ID de cita se esté enviando correctamente
+                console.log("Estado seleccionado:", estadoSeleccionado);  // Verifica que el estado se envíe correctamente
+    
+                if (!idCita) {
+                    alert("Por favor, busca primero una cita.");
+                    return;
+                }
+    
+                if (!estadoSeleccionado) {
+                    alert("Por favor, selecciona un estado.");
+                    return;
+                }
+    
+                fetch('update_cita.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        id_cita: idCita,
+                        estado: estadoSeleccionado
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Respuesta del servidor:", data);  // Verifica la respuesta del servidor
+                    if (data.success) {
+                        alert(data.success);
+                        window.location.reload(); // Recargar para reflejar cambios
+                    } else {
+                        alert(data.error || 'Error al actualizar el estado de la cita.');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
+    </script>
+    
+</body>
+</html>

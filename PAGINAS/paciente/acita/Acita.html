@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Cita</title>
+    <link rel="stylesheet" href="Acita.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Agendar Cita Médica</h1>
+        <form action="agendar_cita.php" method="POST">
+            <label for="especialidad">Especialidad:</label>
+            <select id="especialidad" name="especialidad" required>
+                <option value="">Selecciona una especialidad</option>
+                <?php
+                    while( $row = sqlsrv_fetch_array( $stmt_especialidades, SQLSRV_FETCH_ASSOC ) ) {
+                        echo "<option value='".$row['id_especialidad']."'>".$row['nombre_especialidad']."</option>";
+                    }
+                ?>
+            </select>
+            <br>
+
+            <label for="servicio">Servicio:</label>
+            <select id="servicio" name="servicio" required>
+                <option value="">Selecciona un servicio</option>
+                <?php
+                    while( $row = sqlsrv_fetch_array( $stmt_servicios, SQLSRV_FETCH_ASSOC ) ) {
+                        echo "<option value='".$row['id_servicio']."'>".$row['nombre_servicio']."</option>";
+                    }
+                ?>
+            </select>
+            <br>
+
+            <label for="doctor">Doctor:</label>
+            <select id="doctor" name="doctor" required>
+                <option value="">Selecciona un doctor</option>
+                <?php
+                    while( $row = sqlsrv_fetch_array( $stmt_doctores, SQLSRV_FETCH_ASSOC ) ) {
+                        echo "<option value='".$row['id_doctor']."'>".$row['nombre_doctor']."</option>";
+                    }
+                ?>
+            </select>
+            <br>
+
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" min="<?php echo $fecha_hoy; ?>" max="<?php echo $fecha_maxima; ?>" required>
+            <br>
+
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" name="hora" required>
+            <br>
+
+            <button type="submit">Agendar Cita</button>
+        </form>
+    </div>
+</body>
+</html>

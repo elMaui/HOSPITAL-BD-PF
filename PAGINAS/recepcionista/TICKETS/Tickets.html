@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../IMAGENES/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="./Pagos.css">
+    <link rel="stylesheet" href="../../../CSS/HF.css">
+    <link rel="stylesheet" href="../../../CSS/Normalize.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>CUENTA R</title>
+</head>
+<body>
+    <header class="hero">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <h2 class="nav__title">Hospital</h2>
+            </div>
+            <ul class="nav__link nav__link--menu">
+                <li class="nav__items"><a href="../Recep.html" class="nav__links">Inicio</a></li>
+                <li class="nav__items"><a href="../DIRECTORIO/Directorio.html" class="nav__links">Directorio</a></li>
+                <li class="nav__items"><a href="../FARMACIA/Farmacia.html" class="nav__links">Farmacia</a></li>
+                <li class="nav__items"><a href="../CUENTA/Cuenta.html" class="nav__links">Cuenta</a></li>
+                <img src="../../../IMAGENES/SVG/Xcerrar.svg" alt="" class="nav__close">
+            </ul>
+            <div class="nav__menu">
+                <img src="../../../IMAGENES/SVG/Menu.svg" alt="" class="nav_img">
+            </div>
+        </nav>
+        <section class="hero__container container">
+            <h1 class="hero__title">Bienvenido</h1>
+            <p class="hero__paragraph">Aquí te mostramos tus datos:</p>           
+        </section>
+    </header>
+
+    <main>
+        <section class="billing">
+            <h1>Generación de Tickets</h1>
+
+            <div class="ticket-options">
+                <label for="tipoSeleccion">Seleccionar tipo:</label>
+                <select id="tipoSeleccion" class="action-dropdown">
+                    <option value="">Seleccionar</option>
+                    <option value="Servicio">Servicio</option>
+                    <option value="Medicamento">Medicamento</option>
+                </select>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar servicio o medicamento" class="search-input" id="busquedaItem">
+                <button class="search-button" id="btnBuscarItem">
+                    <img src="../../../IMAGENES/lupa.png" alt="Buscar" class="search-icon">
+                </button>
+            </div>
+
+            <div class="selected-items">
+                <h2>Ítems seleccionados:</h2>
+                <ul id="listaItems" class="item-list">
+                    <!-- Lista de servicios o medicamentos seleccionados -->
+                </ul>
+            </div>
+
+            <div class="billing-summary">
+                <p><strong>Total:</strong> $<span id="totalMonto">0.00</span></p>
+                <button id="confirmarCompra" class="confirm-button">Confirmar</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <section class="footer__container container">
+            <nav class="nav nav--footer">
+                <h2 class="footer__title">
+                    <ul class="nav__link nav__link--footer">
+                        <li class="nav__items">
+                            <a href="../../INICIO/Acercade.html" class="nav__links">Acerca de</a>
+                        </li>
+                        <li class="nav__items">
+                            <a href="../../INICIO/Contacto.html" class="nav__links">Contacto</a>
+                        </li>
+                        <li class="nav__items">
+                            <a href="../../INICIO/Blog.html" class="nav__links">Blog</a>
+                        </li>
+                    </ul>
+                </h2>
+            </nav>
+    
+            <div class="footer-right">
+                <button id="scrollToTop" class="scroll-to-top">
+                    <img src="../../../IMAGENES/SVG/Farriba.svg" alt="Ir arriba" class="arrow-icon">
+                </button>
+            </div>
+        </section>
+
+        <section class="footer__copy container">
+            <div class="footer__social">
+                <a href="https://www.microsoft.com/es-es/sql-server/sql-server-downloads" class="footer__icons"><img src="../../../IMAGENES/SQL.png" class="footer__img"></a>
+                <a href="https://www.escom.ipn.mx/" class="footer__icons"><img src="../../../IMAGENES/BN-Escom-Logo.png" class="footer__img"></a>
+            </div>
+
+            <h3 class="footer__copyright">Grupo: 3CV2-Equipo 9 &copy; Base de datos</h3>
+        </section>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tipoSeleccion = document.getElementById('tipoSeleccion');
+            const buscarInput = document.getElementById('busquedaItem');
+            const listaItems = document.getElementById('listaItems');
+            const totalMonto = document.getElementById('totalMonto');
+            const confirmarCompra = document.getElementById('confirmarCompra');
+
+            let total = 0;
+            let folioTicket = Math.floor(Math.random() * 1000000); // Folio aleatorio temporal
+
+            // Validación de elementos de la página
+            if (!tipoSeleccion || !buscarInput || !listaItems || !totalMonto || !confirmarCompra) {
+                console.error("Uno o más elementos no fueron encontrados en el DOM.");
+                return;
+            }
+
+            tipoSeleccion.addEventListener('change', () => {
+                console.log("Tipo de búsqueda seleccionado:", tipoSeleccion.value);
+            });
+
+            buscarInput.addEventListener('keypress', (event) => {
+                if (event.key === 'Enter') {
+                    agregarItem();
+                    event.preventDefault();
+                }
+            });
+
+            document.getElementById('btnBuscarItem').addEventListener('click', agregarItem);
+
+            function agregarItem() {
+                const busqueda = buscarInput.value.trim();
+                const tipo = tipoSeleccion.value;
+
+                if (!tipo) {
+                    alert("Selecciona primero el tipo de búsqueda (Servicio o Medicamento).");
+                    return;
+                }
+
+                if (!busqueda) {
+                    alert("Por favor, ingresa un término de búsqueda.");
+                    return;
+                }
+
+                console.log(`Buscando: tipo=${tipo}, término=${busqueda}`);
+                
+                fetch(`buscar_item.php?tipo=${tipo}&termino=${encodeURIComponent(busqueda)}`)
+                    .then(response => {
+                        console.log("Respuesta recibida con estado:", response.status);
+                        if (!response.ok) {
+                            throw new Error(`Error de red o servidor: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log("Datos recibidos:", data);
+
+                        // Validación: Verificar si se trata de un objeto con los datos esperados
+                        if (data.ID && data.Nombre && data.Precio) {
+                            const li = document.createElement('li');
+                            li.className = 'selected-item';
+                            li.innerHTML = `<span>${data.Nombre}</span><span>$${parseFloat(data.Precio).toFixed(2)}</span>`;
+                            listaItems.appendChild(li);
+
+                            total += parseFloat(data.Precio);
+                            totalMonto.textContent = total.toFixed(2);
+                            buscarInput.value = ''; 
+                        } else {
+                            alert('No se encontraron resultados o la respuesta es inválida.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error en el fetch:', error);
+                        alert('Hubo un problema al realizar la búsqueda.');
+                    });
+            }
+
+            confirmarCompra.addEventListener('click', () => {
+                const tipo = tipoSeleccion.value;
+
+                if (!tipo || listaItems.children.length === 0) {
+                    alert("Por favor, selecciona ítems antes de confirmar.");
+                    return;
+                }
+
+                fetch('crear_ticket.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        folio_ticket: folioTicket,
+                        tipo: tipo,
+                        items: Array.from(listaItems.children).map(li => li.textContent),
+                        total: total
+                    })
+                })
+                .then(response => {
+                    console.log("Respuesta de confirmación recibida con estado:", response.status);
+                    if (!response.ok) {
+                        throw new Error(`Error de red o servidor: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Datos de confirmación:", data);
+                    if (data.success) {
+                        alert("Compra confirmada con folio: " + folioTicket);
+                        window.location.reload();
+                    } else {
+                        alert("Error al generar el ticket.");
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al enviar la solicitud:', error);
+                    alert('Hubo un problema al confirmar la compra.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../IMAGENES/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="./DED.css">
+    <link rel="stylesheet" href="../../../CSS/HF.css">
+    <link rel="stylesheet" href="../../../CSS/Normalize.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>EDITAR D</title>
+</head>
+<body>
+    <header class="hero">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <h2 calss="nav__title">Hospital</h2>
+            </div>
+            <ul class="nav__link nav__link--menu">
+                <li class="nav__items">
+                    <a href="../Paciente.html" class="nav__links">Inicio</a>
+                </li>
+                <li class="nav__items">
+                    <a href="../ACITA/Acita.html" class="nav__links">Agendar Cita</a>
+                </li>
+                <li class="nav__items">
+                    <a href="../CUENTA/Cuenta.html" class="nav__links">Cuenta</a>
+                </li>
+                <img src="../../../IMAGENES/SVG/Xcerrar.svg" alt="" class="nav__close">
+            </ul>
+            <div class="nav__menu">
+                <img src="../../../IMAGENES/SVG/Menu.svg" alt="" class="nav_img">
+            </div>
+        </nav>
+        <section class="hero__container container">
+            <h1 class="hero__title">Editar Datos</h1>
+            <p class="hero__paragraph">Si deseas actualizar algunos de tus datos, aqui puedes hacerlo:</p>     
+        </section>
+    </header>
+
+    <main>
+            <section class="edit-account">
+                <form action="procesar_datos.php" method="post" class="edit-form">
+                    <label for="correo_respaldo">Correo electrónico de respaldo:</label>
+                    <input type="email" id="correo_respaldo" name="correo_respaldo" placeholder="Ingresa tu correo de respaldo">
+        
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="Ingresa tu teléfono principal">
+        
+                    <label for="telefono_secundario">Teléfono secundario:</label>
+                    <input type="tel" id="telefono_secundario" name="telefono_secundario" placeholder="Ingresa tu teléfono secundario">
+        
+                    <div class="form-buttons">
+                        <button type="submit" class="save-button">Guardar</button>
+                        <a href="cuenta.html" class="cancel-button">Cancelar</a>
+                    </div>
+                </form>
+            </section>
+    </main>
+    <footer class="footer">
+        <section class="footer__container container">
+            <nav class="nav nav--footer">
+                <h2 class="footer__title">
+                    <ul class="nav__link nav__link--footer">
+                        <li class="nav__items">
+                            <a href="../../INICIO/Acercade.html" class="nav__links">Acerca de</a>
+                        </li>
+                        <li class="nav__items">
+                            <a href="../../INICIO/Contacto.html" class="nav__links">Contacto</a>
+                        </li>
+                        <li class="nav__items">
+                            <a href="../../INICIO/Blog.html" class="nav__links">Blog</a>
+                        </li>
+                    </ul>
+                </h2>
+            </nav>
+    
+            <div class="footer-right">
+                <button id="scrollToTop" class="scroll-to-top">
+                    <img src="../../../IMAGENES/SVG/Farriba.svg" alt="Ir arriba" class="arrow-icon">
+                </button>
+            </div>
+        </section>
+
+        <section class="footer__copy container">
+            <div class="footer__social">
+                <a href="https://www.microsoft.com/es-es/sql-server/sql-server-downloads" class="footer__icons"><img src="../../../IMAGENES/SQL.png" class="footer__img"></a>
+                <a href="https://www.escom.ipn.mx/" class="footer__icons"><img src="../../../IMAGENES/BN-Escom-Logo.png" class="footer__img"></a>
+                <a href="https://www.instagram.com/mdiegx?igsh=ajNnNHlhcnExdmM2" class="footer__icons"><img src="../../../IMAGENES/SVG/Instagram.svg" class="footer__img"></a>
+            </div>
+
+            <h3 class="footer__copyright">Grupo: 3CV2-Equipo 9 &copy; Base de datos</h3>
+        </section>
+    </footer>
+    <script src="../../../JS/ArribaInicio.js"></script>
+</body>
+</html>

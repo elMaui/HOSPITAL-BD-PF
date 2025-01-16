@@ -1,0 +1,135 @@
+.agenda-overview {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px;
+}
+
+.next-appointment {
+    width: 40%;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.next-appointment h2 {
+    font-size: 1.5rem;
+    color: #001A49;
+}
+
+.next-appointment p {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+#calendario {
+    width: 60%;
+    background-color: #ffffff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-nav-button {
+    background-color: #001A49;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.calendar-nav-button:hover {
+    background-color: #001A49;
+}
+
+.calendar-title {
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.calendar-table th, .calendar-table td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.calendar-table td:hover {
+    background-color: #e9ecef;
+}
+
+.calendar-table td.selected {
+    background-color: #001A49;
+    color: white;
+
+}
+
+.selected-day {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #001A49;
+    text-align: center;
+}
+
+/**************************************************
+Horario
+***************************************************/
+.daily-schedule {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.daily-schedule h2 {
+    text-align: left;
+    font-size: 1.5rem;
+    color: #001A49;
+    margin-bottom: 10px;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.schedule-table th, .schedule-table td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.schedule-table th {
+    background-color: #001A49;
+    color: white;
+    text-transform: uppercase;
+}
+
+.schedule-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.schedule-table tr:hover {
+    background-color: #e9ecef;
+}

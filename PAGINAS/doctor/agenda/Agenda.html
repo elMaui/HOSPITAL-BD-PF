@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../IMAGENES/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="./Agenda.css">
+    <link rel="stylesheet" href="../../../CSS/HF.css">
+    <link rel="stylesheet" href="../../../CSS/Normalize.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>AGENDA</title>
+</head>
+<body>
+    <header class="hero">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <h2 calss="nav__title">Hospital</h2>
+            </div>
+            <ul class="nav__link nav__link--menu">
+                <li class="nav__items">
+                    <a href="../Doc.html" class="nav__links">Inicio</a>
+                </li>
+                <li class="nav__items">
+                    <a href="../PACIENTES/Pacientes.html" class="nav__links">Pacientes</a>
+                </li>
+                <li class="nav__items">
+                    <a href="../RECETAS/Recetas.html" class="nav__links">Recetas</a>
+                </li>
+                <li class="nav__items">
+                    <a href="../CUENTA/Cuenta.html" class="nav__links">Cuenta</a>
+                </li>
+                <img src="../../IMAGENES/SVG/Xcerrar.svg" alt="" class="nav__close">
+            </ul>
+            <div class="nav__menu">
+                <img src="../../IMAGENES/SVG/Menu.svg" alt="" class="nav_img">
+            </div>
+        </nav>
+        <section class="hero__container container">
+            <h1 class="hero__title">Esta es tu agenda</h1>
+            <p class="hero__paragraph">Aqui puedes ver a tus pacientes:</p>           
+        </section>
+    </header>
+
+    <main>
+        <section class="agenda-overview">
+            <div class="next-appointment">
+                <h2>Próxima cita</h2>
+                <p><strong>Día:</strong> <!-- Día de la cita --> </p>
+                <p><strong>Hora:</strong> <!-- Hora de la cita --> </p>
+                <p><strong>Paciente:</strong> <!-- Nombre del paciente --> </p>
+                <p><strong>Consultorio:</strong> <!-- Consultorio asignado --> </p>
+            </div>
+            <div id="calendario">
+                <div class="calendar-header">
+                    <button id="anterior" onclick="mesantes()" class="calendar-nav-button">&#8249;</button>
+                    <h2 id="tituloMes" class="calendar-title"></h2>
+                    <button id="posterior" onclick="mesdespues()" class="calendar-nav-button">&#8250;</button>
+                </div>
+                <table id="diasc" class="calendar-table">
+                    <thead>
+                        <tr>
+                            <th>Lun</th>
+                            <th>Mar</th>
+                            <th>Mié</th>
+                            <th>Jue</th>
+                            <th>Vie</th>
+                            <th>Sáb</th>
+                            <th>Dom</th>
+                        </tr>
+                    </thead>
+                    <tbody id="calendar-body">
+                        <!-- Días dinámicos se generarán aquí -->
+                    </tbody>
+                </table>
+                <div id="selectedDay" class="selected-day"></div>
+            </div>
+        </section>
+
+        <section class="daily-schedule">
+            <h2>Horario</h2>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Hora</th>
+                        <th>Paciente</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Vista SQL se integrará aquí -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer class="footer">
+        <section class="footer__container container">
+            <nav class="nav nav--footer">
+                <h2 class="footer__title">
+                    <ul class="nav__link nav__link--footer">
+                        <li class="nav__items">
+                            <a href="../../INICIO/Acercade.html" class="nav__links">Acerca de</a>
+                        </li>
+                        <li class="nav__items">
+                            <a href="../../INICIO/Contacto.html" class="nav__links">Contacto</a>
+                        </li>
+                        <li class="nav__items">
+                            <a href="../../INICIO/Blog.html" class="nav__links">Blog</a>
+                        </li>
+                    </ul>
+                </h2>
+            </nav>
+    
+            <div class="footer-right">
+                <button id="scrollToTop" class="scroll-to-top">
+                    <img src="../../../IMAGENES/SVG/Farriba.svg" alt="Ir arriba" class="arrow-icon">
+                </button>
+            </div>
+        </section>
+
+        <section class="footer__copy container">
+            <div class="footer__social">
+                <a href="https://www.microsoft.com/es-es/sql-server/sql-server-downloads" class="footer__icons"><img src="../../../IMAGENES/SQL.png" class="footer__img"></a>
+                <a href="https://www.escom.ipn.mx/" class="footer__icons"><img src="../../../IMAGENES/BN-Escom-Logo.png" class="footer__img"></a>
+                <a href="https://www.instagram.com/mdiegx?igsh=ajNnNHlhcnExdmM2" class="footer__icons"><img src="../../../IMAGENES/SVG/Instagram.svg" class="footer__img"></a>
+            </div>
+
+            <h3 class="footer__copyright">Grupo: 3CV2-Equipo 9 &copy; Base de datos</h3>
+        </section>
+    </footer>
+    <script src="./Agenda.js"></script>
+    <script src="../../../JS/ArribaInicio.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+/* CSS para el cuerpo de la página de Agendar Cita */
+
+.schedule-appointment {
+    padding: 20px;
+    text-align: center;
+}
+
+.schedule-appointment h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #001A49;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+}
+
+.form-section {
+    flex: 1;
+    max-width: 400px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.form-section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-section select, .form-section input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.form-section button {
+    width: 100%;
+    padding: 10px;
+    background-color: #001A49;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-section button:hover {
+    background-color: #001A49;
+}
+
+.preview-section {
+    flex: 1;
+    max-width: 400px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+.image-placeholder {
+    width: 80%;
+    height: 80%;
+    background-color: #ddd;
+    border: 2px dashed #bbb;
+    border-radius: 10px;
+}
+
+.error-message {
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    max-width: 500px;
+    text-align: center;
+}

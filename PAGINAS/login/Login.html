@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../IMAGENES/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="./CSS/Normalize.css">
+    <link rel="stylesheet" href="./DL.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Login</title>
+</head>
+<body>
+    <div class="container-form register">
+        <div class="information">
+            <div class="info-childs">
+                <h2>Bienvenido</h2>
+                <p>Para poder utilizar todos los servicios del hospital por favor Inicia Sesión</p>
+                <input type="button" value="Iniciar Sesión" id="sign-in">
+            </div>
+        </div>
+        <div class="form-information">
+            <div class="form-information-childs">
+                <h2>Crear Cuenta</h2>
+                <div class="icons">
+                    <i class='bx bxl-google'></i>
+                </div>
+                <p>Usa una cuenta existente o registrate con nosostros</p>
+                <form class="form form-register" method="POST" action="CrearCuenta.php" onsubmit="validarFormulario(event)" novalidate>
+
+                        <label for="nombre">
+                            <i class='bx bx-user'></i>
+                            <input type="text" placeholder="Nombre" id="nombre" name="nombre" required>
+                        </label>
+                    
+                        <label for="apellidoP">
+                            <i class='bx bx-user'></i>
+                            <input type="text" placeholder="Primer apellido" id="apellidoP" name="apellidoP" required>
+                        </label>
+                    
+                        <label for="apellidoM">
+                            <i class='bx bx-user'></i>
+                            <input type="text" placeholder="Segundo apellido" id="apellidoM" name="apellidoM" required>
+                        </label>
+                    
+                        <label for="calle">
+                            <i class='bx bx-map'></i>
+                            <input type="text" placeholder="Calle" id="calle" name="calle" required>
+                        </label>
+                    
+                        <label for="numDomicilio">
+                            <i class='bx bx-map'></i>
+                            <input type="text" placeholder="Domicilio" id="numDomicilio" name="numDomicilio" required>
+                        </label>
+                        
+                    
+                        <label for="colonia">
+                            <i class='bx bx-map'></i>
+                            <input type="text" placeholder="Colonia" id="colonia" name="colonia" required>
+                        </label>
+                    
+                        <label for="municipio">
+                            <i class='bx bx-map'></i>
+                            <input type="text" placeholder="Municipio" id="municipio" name="municipio" required>
+                        </label>
+                    
+                        <label for="email1">
+                            <i class='bx bx-envelope'></i>
+                            <input type="email" placeholder="Correo Electronico" id="email1" name="email" required>
+                        </label>
+                        
+                    
+                        <label for="email2">
+                            <i class='bx bx-envelope'></i>
+                            <input type="email" placeholder="Correo Electronico 2 (opcional)" id="email2" name="email2">
+                        </label>
+                    
+                        <label for="tel1">
+                            <i class='bx bx-phone'></i>
+                            <input type="text" placeholder="Telefono" id="tel1" name="tel1" required>
+                        </label>
+                        
+                   
+                        <label for="tel2">
+                            <i class='bx bx-phone'></i>
+                            <input type="text" placeholder="Telefono 2 (opcional)" id="tel2" name="tel2">
+                        </label>
+                    
+                        <label for="password">
+                            <i class='bx bx-lock-alt'></i>
+                            <input type="password" placeholder="Contraseña" id="password" name="password" required>
+                        </label>
+                    
+                    
+                        <label for="confirmPassword">
+                            <i class='bx bx-lock-alt'></i>
+                            <input type="password" placeholder="Confirma tu Contraseña" id="confirmPassword" required>
+                        </label>
+                   
+                    <input type="submit" value="Registrarse">
+                    <div class="alerta-error">Todos los campos son obligatorios</div>
+                    <div class="alerta-exito">Te registraste correctamente</div>
+                </form>
+            </div>
+        </div>
+      </div>    
+
+      <div class="container-form login hide">
+        <div class="information">
+            <div class="info-childs">
+                <h2>Bienvenido +</h2>
+                <p>Si no tienes una cuenta, por favor Regístrate!!</p>
+                <input type="button" value="Registrarse" id="sign-up">
+            </div>
+        </div>
+        <div class="form-information">
+            <div class="form-information-childs">
+                <h2>Iniciar Sesión</h2>
+                <div class="icons">
+                    <i class='bx bxl-google'></i>
+                </div>
+                <p>Para poder utilizar todos los servicios del hospital por favor Inicia Sesión con tus datos o usa alguna otra cuenta!!!</p>
+                <form class="form2 form-login" action="Login.php" method="POST" novalidate>
+                    <div>
+                        <label>
+                            <i class='bx bx-envelope'></i>
+                            <input type="email" placeholder="Ingresa tu Correo Electronico" id="email" name="email" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label><i class='bx bx-lock-alt'></i>
+                            <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+                        </label>
+                    </div>
+                    <input type="submit" value="Iniciar Sesión">
+                    <div class="alerta-error">Todos los campos son obligatorios</div>
+                    <div class="alerta-exito">Iniciaste Sesión correctamente</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+      </div>
+      <script src="./CambioLR.js"></script>
+</body>
+</html>

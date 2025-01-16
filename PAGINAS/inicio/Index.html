@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../IMAGENES/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../CSS/Diseño.css">
+    <link rel="stylesheet" href="../../CSS/Normalize.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>HOSPITAL</title>
+</head>
+<body>
+    <header class="hero">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <h2 calss="nav__title">Hospital</h2>
+            </div>
+            <ul class="nav__link nav__link--menu">
+                <li class="nav__items">
+                    <a href="../LOGIN/Login.html" class="nav__links">Login</a>
+                </li>
+                <img src="../../IMAGENES/SVG/Xcerrar.svg" alt="" class="nav__close">
+            </ul>
+            <div class="nav__menu">
+                <img src="../../IMAGENES/SVG/Menu.svg" alt="" class="nav_img">
+            </div>
+        </nav>
+        <section class="hero__container container">
+            <h1 class="hero__title">Bienvenido</h1>
+            <p class="hero__paragraph">Ayúdanos a cuidarte</p>
+            <div class="cta-container">
+                <a href="../LOGIN/Login.html" class="cta cta-register">Entrar al hospital</a>
+            </div>            
+        </section>
+    </header>
+
+    <main>
+        <section class="container .about">
+            <h2 class="subtitle">¿Qué puedes hacer en este hospital?</h2>
+            <p class="about_paragraph">Todo lo que puedes hacer te lo mostramos aquí:</p>
+            <div class="about__main">
+                <article class="about__icons">
+                    <img src="../../IMAGENES/SVG/Doc.svg" class="about__icon">
+                    <h3 class="about__title">Agendar citas</h3>
+                    <p class="about__paragraph">Esta página tiene la capacidad de agendar una 
+                        cita con el servicio que el paciente desee, además de solicitar algunos servicios extra.</p>
+                </article>
+
+                <article class="about__icons">
+                    <img src="../../IMAGENES/SVG/Citas.svg" class="about__icon">
+                    <h3 class="about__title">Servicios</h3>
+                    <p class="about__paragraph">Con servicios nos referimos a la capacidad que tiene el paciente de elegir 
+                        lo que necesita, ya sea desde una cirugía, trasplante, donación o una consulta médica.</p>
+                </article>
+
+                <article class="about__icons">
+                    <img src="../../IMAGENES/SVG/SE.svg" class="about__icon">
+                    <h3 class="about__title">Servicios Extra</h3>
+                    <p class="about__paragraph">Con servicios extra nos referimos a ciertas necesidades que el 
+                        paciente puede tener, ya sea la compra de medicamentos o la solicitud de una inyección </p>
+                </article>
+            </div>
+        </section>
+        <section class="knowledge">
+            <div class="knowledge__container container">
+                <div class="knowledge__texts">
+                    <h2 class="subtitle">Este Hospital fue diseñado por alumnos de ESCOM:</h2>
+                    <p class="knowledge__paragraph">La Escuela Superior de Cómputo es una 
+                        institución pública mexicana de educación superior perteneciente al 
+                        Instituto Politécnico Nacional​ que inició 
+                        sus actividades académicas en 1993</p>
+                    <a href="https://www.escom.ipn.mx/" class="cta cta cta-escom">Pagina oficial </a>
+                </div>
+                <figure class="knoledge__picture">
+                    <img src="../../IMAGENES/Escom-Logo.png" class="knowledge__img">
+                </figure>
+            </div>
+        </section>
+
+        <section class="Testimony">
+            <div class="testimony__container container">
+                <img src="../../IMAGENES/SVG/Fizquierda.svg" class="testimony__arrow" id="before">
+                <section class="testimony__body testimony__body--show" data-id="1">
+                    <div class="testimony__texts">
+                        <h2 class="subtitle">¿Que hacen los <span class="testimony__course">Doctores?</span></h2>
+                        <p class="testimony__review">Diagnosticar y tratar enfermedades, 
+                            lesiones y demás trastornos de salud. 
+                            Prescribir tratamientos, medicamentos, cirugías, dietas y/o 
+                            ejercicios de rehabilitación, según el diagnóstico y condición del paciente. 
+                            Solicitar exámenes de laboratorio, ultrasonidos, ecocardiogramas, 
+                            electrocardiogramas, rayos X, entre otros.</p>
+                    </div>
+                    <figure class="testimony__picture">
+                        <img src="../../IMAGENES/Cirujano.jpg" class="testimony__img">
+                    </figure>
+                </section>
+
+                <section class="testimony__body" data-id="2">
+                    <div class="testimony__texts">
+                        <h2 class="subtitle">¿Que hacen las <span class="testimony__course">Ambulancias?</span></h2>
+                        <p class="testimony__review">Transportar personas enfermas, 
+                            lesionadas o convalecientes en servicio de ambulancia que se desplazan a 
+                            los hospitales o a otras
+                             instalaciones médicas en busca de una posterior atención médica.</p>
+                    </div>
+                    <figure class="testimony__picture">
+                        <img src="../../IMAGENES/Ambulancia.jpg" class="testimony__img">
+                    </figure>
+                </section>
+
+                <section class="testimony__body" data-id="3">
+                    <div class="testimony__texts">
+                        <h2 class="subtitle">¿Que hacen los <span class="testimony__course">Medicamentos?</span></h2>
+                        <p class="testimony__review">Los medicamentos son sustancias 
+                            que se utilizan para prevenir, diagnosticar, tratar o 
+                            aliviar los síntomas de enfermedades o afecciones. Los medicamentos pueden: Reducir dolores y molestias, 
+                            Combatir infecciones, Controlar problemas como la presión arterial alta o la diabetes.</p>
+                    </div>
+                    <figure class="testimony__picture">
+                        <img src="../../IMAGENES/Pastillas.jpg" class="testimony__img">
+                    </figure>
+                </section>
+                <img src="../../IMAGENES/SVG/Fderecha.svg" class="testimony__arrow" id="next">
+            </div>
+        </section>
+
+        <section class="questions container">
+            <h2 class="subtitle">Preguntas frecuentes</h2>
+            <p class="questions__paragraph">¿Como debo de usar esta página?</p>
+
+            <section class="questions__container">
+                <article class="questions__padding">
+                    <div class="questions__answer">
+                        <h3 class="questions__title">¿Sobre qué es este Hospital?
+                            <span class="questions__arrow">
+                                <img src="../../IMAGENES/SVG/Fabajo.svg" class="questions__img">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show"> El hospital realizado por estudiantes de Escom consiste en 
+                            proporcionar a la población una asistencia mé-dico-sanitaria completa, 
+                            tanto curativa como preventiva, y cuyos servicios llegan hasta el ámbito familiar.</p>
+                    </div>
+                </article>
+
+                <article class="questions__padding">
+                    <div class="questions__answer">
+                        <h3 class="questions__title">¿Como hacer una cita?
+                            <span class="questions__arrow">
+                                <img src="../../IMAGENES/SVG/Fabajo.svg" class="questions__img">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">Primero debes de Iniciar Sesión o 
+                            crear una cuenta que te permita utilizar todos los servicios del hospital, 
+                            una vez hecho esto, debes ir al apartado de agendar citas, 
+                            donde se te darán las indicaciones correspondientes, para agendar una cita.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="questions__padding">
+                    <div class="questions__answer">
+                        <h3 class="questions__title">¿Rembolsos?
+                            <span class="questions__arrow">
+                                <img src="../../IMAGENES/SVG/Fabajo.svg" class="questions__img">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">Tenemos una política de cancelación, 
+                            en donde el paciente tiene un plazo de 48,24 y 
+                            menos de 24 horas para pedir un rembolso. 
+                            Si se pide el reembolso en las primeras 48 horas, 
+                            se le dará un reembolso del 100%, si lo pide en un lapso de 24 horas, 
+                            se le rembolsara el 50% y si lo hace en un lapso menor a 24 horas se le dará un rembolso del 0%</p>
+                    </div>
+                </article>
+            </section>
+
+            <section class="questions__offer">
+                <h2 class="subtitle">¿Estas listo para empezar a cuidarte?</h2>
+                <p class="questions__copy"></p>Inicia sesión o crea una cuenta con nosotros 
+                para que puedas utilizar todos los servicios.
+                <a href="../LOGIN/Login.html" class="cta">¡¡A cuidarte!!</a>
+            </section>
+        </section>
+    </main>
+    <footer class="footer">
+        <section class="footer__container container">
+            <nav class="nav nav--footer">
+                <h2 class="footer__title">
+                    <ul class="nav__link nav__link--footer">
+                        <li class="nav__items">
+                            <a href="../../INICIO/Acercade.html" class="nav__links">Acerca de</a>
+                        </li>
+                        <li class="nav__items">
+                            <a href="../../INICIO/Contacto.html" class="nav__links">Contacto</a>
+                        </li>
+                        <li class="nav__items">
+                            <a href="../../INICIO/Blog.html" class="nav__links">Blog</a>
+                        </li>
+                    </ul>
+                </h2>
+            </nav>
+
+            <div class="footer-right">
+                <button id="scrollToTop" class="scroll-to-top">
+                    <img src="../../../IMAGENES/SVG/Farriba.svg" alt="Ir arriba" class="arrow-icon">
+                </button>
+            </div>
+        </section>
+
+        <section class="footer__copy container">
+            <div class="footer__social">
+                <a href="https://www.microsoft.com/es-es/sql-server/sql-server-downloads" class="footer__icons"><img src="../../IMAGENES/SQL.png" class="footer__img"></a>
+                <a href="https://www.escom.ipn.mx/" class="footer__icons"><img src="../../IMAGENES/BN-Escom-Logo.png" class="footer__img"></a>
+                <a href="https://www.instagram.com/mdiegx?igsh=ajNnNHlhcnExdmM2" class="footer__icons"><img src="../../IMAGENES/SVG/Instagram.svg" class="footer__img"></a>
+            </div>
+
+            <h3 class="footer__copyright">Grupo: 3CV2-Equipo 9 &copy; Base de datos</h3>
+        </section>
+    </footer>
+
+    <script src="../../JS/slider.js"></script>
+    <script src="../../JS/questions.js"></script>
+    <script src="../../JS/menu.js"></script>
+    <script src="../../../JS/ArribaInicio.js"></script>
+
+
+</body>
+</html>
