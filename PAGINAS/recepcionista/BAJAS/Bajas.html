@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../IMAGENES/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="./Pagos.css">
+    <link rel="stylesheet" href="../../../CSS/HF.css">
+    <link rel="stylesheet" href="../../../CSS/Normalize.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>BAJAS</title>
+</head>
+<body>
+    <header class="hero">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <h2 class="nav__title">Hospital</h2>
+            </div>
+            <ul class="nav__link nav__link--menu">
+                <li class="nav__items"><a href="../Recep.html" class="nav__links">Inicio</a></li>
+                <li class="nav__items"><a href="../DIRECTORIO/Directorio.html" class="nav__links">Directorio</a></li>
+                <li class="nav__items"><a href="../FARMACIA/Farmacia.html" class="nav__links">Farmacia</a></li>
+                <li class="nav__items"><a href="../PAGOS/Pagos.html" class="nav__links">Pagos</a></li>
+                <li class="nav__items"><a href="../TICKETS/Tickets.html" class="nav__links">Tickets</a></li>
+                <li class="nav__items"><a href="../CUENTA/Cuenta.html" class="nav__links">Cuenta</a></li>
+                <img src="../../../IMAGENES/SVG/Xcerrar.svg" alt="" class="nav__close">
+            </ul>
+            <div class="nav__menu">
+                <img src="../../../IMAGENES/SVG/Menu.svg" alt="" class="nav_img">
+            </div>
+        </nav>
+        <section class="hero__container container">
+            <h1 class="hero__title">Bienvenido</h1>
+            <p class="hero__paragraph">Aquí te mostramos tus datos:</p>           
+        </section>
+    </header>
+
+    <main>
+        <section class="billing">
+            <h1>Gestión de Usuarios</h1>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar por correo electrónico" class="search-input" id="emailInput">
+                <button class="search-button" id="btnBuscar">
+                    <img src="../../../IMAGENES/lupa.png" alt="Buscar" class="search-icon">
+                </button>
+            </div>
+
+            <div class="user-details">
+                <div class="user-info" id="userInfo">
+                    <p><strong>Email:</strong> <span id="userEmail">[Email]</span></p>
+                    <p><strong>Nombre:</strong> <span id="userName">[Nombre]</span></p>
+                    <p><strong>Apellido Paterno:</strong> <span id="userLastNameP">[Apellido Paterno]</span></p>
+                    <p><strong>Apellido Materno:</strong> <span id="userLastNameM">[Apellido Materno]</span></p>
+                    <p><strong>Teléfono 1:</strong> <span id="userTel1">[Teléfono 1]</span></p>
+                    <p><strong>Teléfono 2:</strong> <span id="userTel2">[Teléfono 2]</span></p>
+                    <p><strong>Tipo de Usuario:</strong> <span id="userType">[Tipo de Usuario]</span></p>
+                </div>
+
+                <div class="user-actions">
+                    <button id="deleteUser" class="delete-button">Dar de baja</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <section class="footer__container container">
+            <nav class="nav nav--footer">
+                <h2 class="footer__title">
+                    <ul class="nav__link nav__link--footer">
+                        <li class="nav__items">
+                            <a href="../../INICIO/Acercade.html" class="nav__links">Acerca de</a>
+                        </li>
+                        <li class="nav__items">
+                            <a href="../../INICIO/Contacto.html" class="nav__links">Contacto</a>
+                        </li>
+                        <li class="nav__items">
+                            <a href="../../INICIO/Blog.html" class="nav__links">Blog</a>
+                        </li>
+                    </ul>
+                </h2>
+            </nav>
+    
+            <div class="footer-right">
+                <button id="scrollToTop" class="scroll-to-top">
+                    <img src="../../../IMAGENES/SVG/Farriba.svg" alt="Ir arriba" class="arrow-icon">
+                </button>
+            </div>
+        </section>
+
+        <section class="footer__copy container">
+            <div class="footer__social">
+                <a href="https://www.microsoft.com/es-es/sql-server/sql-server-downloads" class="footer__icons"><img src="../../../IMAGENES/SQL.png" class="footer__img"></a>
+                <a href="https://www.escom.ipn.mx/" class="footer__icons"><img src="../../../IMAGENES/BN-Escom-Logo.png" class="footer__img"></a>
+            </div>
+
+            <h3 class="footer__copyright">Grupo: 3CV2-Equipo 9 &copy; Base de datos</h3>
+        </section>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchButton = document.getElementById('btnBuscar');
+            const emailInput = document.getElementById('emailInput');
+            const deleteButton = document.getElementById('deleteUser');
+
+            // Buscar usuario por email
+            searchButton.addEventListener('click', () => {
+                const email = emailInput.value.trim();
+
+                if (!email) {
+                    alert("Por favor, ingresa un correo electrónico.");
+                    return;
+                }
+
+                fetch(`get_usuario.php?email=${email}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.error) {
+                            alert(data.error);
+                        } else {
+                            document.getElementById('userEmail').textContent = data.Email_Usuario || "No disponible";
+                            document.getElementById('userName').textContent = data.Nombre || "No disponible";
+                            document.getElementById('userLastNameP').textContent = data.ApellidoP || "No disponible";
+                            document.getElementById('userLastNameM').textContent = data.ApellidoM || "No disponible";
+                            document.getElementById('userTel1').textContent = data.tel1 || "No disponible";
+                            document.getElementById('userTel2').textContent = data.tel2 || "No disponible";
+                            document.getElementById('userType').textContent = data.TipoUsuario || "No disponible";
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+
+            // Eliminar usuario
+            deleteButton.addEventListener('click', () => {
+                const email = emailInput.value.trim();
+
+                if (!email) {
+                    alert("Por favor, busca un usuario antes de intentar eliminarlo.");
+                    return;
+                }
+
+                if (confirm(`¿Estás seguro de eliminar al usuario con correo: ${email}?`)) {
+                    fetch('delete_usuario.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ email: email })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert(data.success);
+                            window.location.reload(); // Recargar para limpiar los datos
+                        } else {
+                            alert(data.error || 'Error al eliminar al usuario.');
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>

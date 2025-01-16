@@ -1,5 +1,5 @@
 <?php
-require_once '../Cconexion.php'; // Ruta ajustada
+require_once '../../Cconexion.php'; // Ruta ajustada
 
 // Habilitar reporte de errores
 ini_set('display_errors', 1);
